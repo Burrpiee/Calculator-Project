@@ -17,3 +17,9 @@ function divide(num1, num2){
 let firstNum;
 let operator;
 let secondNum;
+
+let display = document.querySelector(".display");
+
+function operate() {
+
+}

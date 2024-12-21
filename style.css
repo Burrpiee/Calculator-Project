@@ -5,17 +5,17 @@ body {
     align-items: center;
     align-content: center;
     min-height: 100vh;
-    background: rgb(10, 50, 100);
+    background: rgb(17, 24, 39);
 }
 
 .calculator {
-    background-color: grey;
+    background-color: darkgray;
     display: flex;
     flex-direction: column;
     gap: 10px;
     border-radius: 12px;
-    padding: 15px;
-    padding-bottom: 25px;
+    padding: 20px;
+    padding-bottom: 30px;
     width: 400px;
     height: 500px;
 }
@@ -25,6 +25,7 @@ body {
     height: 100px;
     font-size: 5.5em;
     border-radius: 8px;
+    text-align: right;
 }
 
 .keys {
@@ -40,16 +41,32 @@ button {
     height: 80px;
 }
 
+button.number:hover {
+    background-color: hsl(0, 0%, 60%);
+}
+
+button.number:active {
+    background-color: hsl(0, 0%, 40%);
+}
+
+button.operator:hover {
+    background-color: hsl(39, 100%, 60%)
+}
+
+button.operator:active {
+    background-color: hsl(39, 100%, 40%)
+}
+
 #zero {
     flex-grow: 2;
 }
 
 .number {
-    background-color: aquamarine;
+    background-color: hsl(0, 0%, 50%);
 }
 
 .operator {
-    background-color: lightblue;
+    background-color: hsl(39, 100%, 50%)
 }
 
 
