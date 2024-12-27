@@ -10,22 +10,47 @@ let secondNumArray = [];
 const display = document.querySelector(".display");
 
 function negative() {
+    let x;
+
     if (step === 1){
-        
-    }    
+        x = numArray.shift();
+        numArray.unshift(x);
+    }
+    else if (step === 2){
+        x = secondNumArray.shift();
+        secondNumArray.unshift()
+    }
+    
+    if (x === undefined){
+        return;
+    }
+    else if (x !== '-' && step === 1){
+        numArray.unshift('-');
+        displayAndStoreFirstNum();
+    }
+    else if (x === '-' && step === 1){
+        numArray.shift();
+        displayAndStoreFirstNum();
+    }
+    else if (x !== '-' && step === 2){
+        secondNumArray.unshift('-');
+        displayAndStoreSecondNum();
+
+    }
+    else if(x === '-' && step === 2){
+        secondNumArray.shift('-');
+        displayAndStoreSecondNum();
+    }
 }
 
 function getNum(num) {
     if (step === 1){
         numArray.push(num);
-        step = 1;
-        firstNum = Number(numArray.join(''));
-        display.textContent = firstNum;
+        displayAndStoreFirstNum();
     }
     else if (step === 2){
         secondNumArray.push(num)
-        secondNum = Number(secondNumArray.join(''));
-        display.textContent = secondNum;
+        displayAndStoreSecondNum();
     }
 }
 
@@ -64,6 +89,16 @@ function operate() {
             result = remainder(firstNum, secondNum);
             display.textContent = result;
     }
+}
+
+function displayAndStoreFirstNum() {
+    firstNum = Number(numArray.join(''));
+    display.textContent = firstNum;
+}
+
+function displayAndStoreSecondNum() {
+    secondNum = Number(secondNumArray.join(''));
+    display.textContent = secondNum;
 }
 
 function clearMemory() {
