@@ -2,15 +2,21 @@ let firstNum;
 let operator;
 let secondNum;
 let result = 0;
-let step = 0;
+let step = 1;
 
 let numArray = [];
 let secondNumArray = [];
 
 const display = document.querySelector(".display");
 
+function negative() {
+    if (step === 1){
+        
+    }    
+}
+
 function getNum(num) {
-    if (step === 0 || step === 1){
+    if (step === 1){
         numArray.push(num);
         step = 1;
         firstNum = Number(numArray.join(''));
@@ -24,8 +30,16 @@ function getNum(num) {
 }
 
 function getOp(op) {
-    operator = op;
-    step = 2;
+    if (step === 1){
+        operator = op;
+        step = 2;
+    }
+    else if (step === 2){
+        operate();
+        firstNum = result;
+        numArray = [];
+        secondNumArray = [];
+    }
 }
 
 function operate() {
@@ -46,19 +60,27 @@ function operate() {
             result = divide(firstNum, secondNum);
             display.textContent = result;
             break;
+        case '%':
+            result = remainder(firstNum, secondNum);
+            display.textContent = result;
     }
 }
 
-function clearDisplay() {
-    display.textContent = 0;
+function clearMemory() {
     firstNum = null;
     secondNum = null;
     operator = null;
     numArray = [];
     secondNumArray = [];
     result = 0;
-    step = 0;
+    step = 1;
 }
+
+function clearDisplay() {
+    display.textContent = 0;
+    clearMemory();
+}
+
 
 function add(num1, num2) {
     return num1 + num2;
@@ -74,5 +96,14 @@ function multiply(num1, num2) {
 
 function divide(num1, num2) {
     return num1 / num2;
+}
+
+function remainder(num1, num2) {
+    return num1 % num2;
+}
+
+function equal() {
+    operate();
+    clearMemory();
 }
 
