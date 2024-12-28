@@ -23,6 +23,17 @@ for (let i = 0; i < btn.length; i++){
     });
 }
 
+function backspace() {
+    if (step === 1){
+        numArray.pop();
+        displayAndStoreFirstNum();
+    }
+    else if (step === 2){
+        secondNumArray.pop();
+        displayAndStoreSecondNum();
+    }
+}
+
 function negative() {
     let x;
 
