@@ -8,6 +8,20 @@ let numArray = [];
 let secondNumArray = [];
 
 const display = document.querySelector(".display");
+const decimal = document.querySelector("#decimal")
+const btn = document.querySelectorAll("button");
+
+//Checks if display has decimal when any button is clicked
+for (let i = 0; i < btn.length; i++){
+    btn[i].addEventListener("click", () => {
+        if (display.textContent.includes('.')){
+            decimal.disabled = true;
+        }
+        else {
+            decimal.disabled = false;
+        }
+    });
+}
 
 function negative() {
     let x;
@@ -43,7 +57,7 @@ function negative() {
     }
 }
 
-function getNum(num) {
+function getNum(num){
     if (step === 1){
         numArray.push(num);
         displayAndStoreFirstNum();
@@ -54,7 +68,7 @@ function getNum(num) {
     }
 }
 
-function getOp(op) {
+function getOp(op){
     if (step === 1){
         operator = op;
         step = 2;
@@ -115,7 +129,6 @@ function clearDisplay() {
     display.textContent = 0;
     clearMemory();
 }
-
 
 function add(num1, num2) {
     return num1 + num2;

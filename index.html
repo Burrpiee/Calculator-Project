@@ -12,7 +12,7 @@
         <div class="display">0</div>
         <div class="keys">
             <button onclick="clearDisplay()" class="operator">AC</button>
-            <button onclick="negative()" class="operator">+/-</button>
+            <button onclick="backspace()" class="operator">&#9003;</button>
             <button onclick="getOp('%')" class="operator">R</button>
             <button onclick="getOp('/')" class="operator">&divide;</button>
             <button onclick="getNum(7)" class="number">7</button>
@@ -27,8 +27,9 @@
             <button onclick="getNum(2)" class="number">2</button>
             <button onclick="getNum(3)" class="number">3</button>
             <button onclick="getOp('+')" class="operator">+</button>
+            <button onclick="negative()" class="number">+/-</button>
             <button onclick="getNum(0)" id="zero" class="number">0</button>
-            <button onclick="getNum('.')" class="number">.</button>
+            <button onclick="getNum('.')" class="number" id="decimal">.</button>
             <button onclick="equal()" class="operator">=</button>
         </div>
     </div>
